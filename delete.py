@@ -1,3 +1,6 @@
+#receives a day/time
+#using rabbitmq, 
+
 import typer
 from rich.console import Console
 from rich.table import Table
