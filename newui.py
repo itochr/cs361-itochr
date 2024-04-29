@@ -7,15 +7,14 @@ def time_parser(time_string):
     hour = str(time_data.hour)
     minute = str(time_data.minute).zfill(2)
     #fix error handling later
-    if 0 < time_data.hour < 24 or 0 < time_data.minute < 60:
-        return error_msg
+    # if 0 < time_data.hour < 24 or 0 < time_data.minute < 60:
+    #     return error_msg
     return hour + ":" + minute
 
 
 while True:
     print("Welcome to the timezone converter! This program will allow you to enter a time and a US state.\nThe program will tell you the equivalent time in whatever state you choose!\nPlease enter 'Help' for more information.\nOr to start, please enter a time using 24-hour format (HH:MM):")
     input1 = str(input())
-    print(time_parser(input1))
     if input1 == "Help":
         print("You have requested additional information about the program!\nThis program takes a time and a state in the United States and returns the equivalent time in another state of your choosing.\nTo use this program, all you need to do is enter a time, a starting state name, and ending state name.\nYou will also be asked to verify the ending state name to ensure you did not make a mistake.\nYou also have the option to return to the Home page at any time by pressing 0.\nPlease note that some states are between two timezones, and the program will return the time that the majority of the state falls into.\nPlease enter 0 to return to the Home page now.")
         return_input = int(input())
@@ -63,6 +62,7 @@ while True:
                 dest_time_zone = 'alaska'
             else:
                 print("Invalid state. Please try again")
+                #continue?
         
             #verify
             print("Are you sure? Enter Y for yes, or N for no")
@@ -74,6 +74,6 @@ while True:
                 end_time = 'tbd!'
 
     start_time = time_parser(input1)
-    print(f"When it is {input1} in {state_input} it is {end_time} in {dest_state_input}.\n")
+    print(f"When it is {start_time} in {state_input} it is {end_time} in {dest_state_input}.\n")
 
    
