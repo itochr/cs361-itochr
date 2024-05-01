@@ -13,15 +13,15 @@ def time_parser(time_string):
 
 
 while True:
-    print("Welcome to the timezone converter! This program will allow you to enter a time and a US state.\nThe program will tell you the equivalent time in whatever state you choose! It will take roughly 30 seconds to a minute to use.\nPlease enter 'Help' for more information.\nOr to start, please enter a time using 24-hour format (HH:MM):")
+    print("\nWelcome to the timezone converter! This program will allow you to enter a time and a US state.\nThe program will tell you the equivalent time in whatever state you choose! It will take roughly 30 seconds to a minute to use.\nPlease enter 'Help' for more information.\nOr to start, please enter a time using 24-hour format (HH:MM):")
     input1 = str(input())
     if input1 == "Help":
-        print("You have requested additional information about the program!\nThis program takes a time and a state in the United States and returns the equivalent time in another state of your choosing.\nTo use this program, all you need to do is enter a time, a starting state name, and ending state name.\nYou will also be asked to verify the ending state name to ensure you did not make a mistake.\nYou also have the option to return to the Home page at any time by pressing 0.\nPlease note that some states are between two timezones, and the program will return the time that the majority of the state falls into.\nPlease enter 0 to return to the Home page now.")
-        return_input = int(input())
-        if return_input == 0:
+        print("You have requested additional information about the program!\nThis program takes a time and a state in the United States and returns the equivalent time in another state of your choosing.\nTo use this program, all you need to do is enter a time, a starting state name, and ending state name.\nYou will also be asked to verify the ending state name to ensure you did not make a mistake.\nYou also have the option to return to the Home page at any time by pressing 0.\nPlease note that some states are between two timezones, and the program will return the time that the majority of the state falls into.\nPlease enter 0 or type 'return' to return to the Home page now.")
+        return_input = str(input())
+        if return_input == str(0) or return_input == 'return':
             continue
         else:
-            print("Invalid entry. Press 0 to return to the Home screen")
+            print("Invalid entry. Press 0 or enter 'return' to return to the Home screen")
             return_input = int(input())
     else:
         time_zone = 'none'
@@ -44,8 +44,8 @@ while True:
                 print("Invalid state. Please try again")
 
         #enter a second state
-        verify = 'N'
-        while verify == 'N':
+        verify = 'Y'
+        while verify == 'Y':
             print("Please enter the state you'd like to know the time in (or enter 'DC' for Washington DC):")
             dest_state_input = str(input())
             if dest_state_input == "Washington" or "Oregon" or "California" or "Nevada":
@@ -65,20 +65,22 @@ while True:
                 #continue?
         
             #verify
-            print("Are you sure? Enter Y for yes, or N for no")
+            print("Are you sure? Enter Y for yes, or N to go back and change your answers")
             verify = str(input())
-            if verify == 'Y':
-                break
+            if verify == 'N':
+                continue
             else:
                 print("Send to microservices! Feature coming soon!")
                 end_time = 'tbd!'
-    start_time = time_parser(input1)
-    print(f"When it is {start_time} in {state_input} it is {end_time} in {dest_state_input}.\n")
-    print("To use the program again, press 0.")
+                start_time = time_parser(input1)
+                print(f"When it is {start_time} in {state_input} it is {end_time} in {dest_state_input}.\n")
+                break
+    print("To return to the Home page and use the program again, press 0.")
     restart = int(input())
     if restart == 0:
         continue
     else:
-        break
+        print("Invalid entry. Please try again. Enter 0 to return to the Home page.")
+        restart = int(input())
 
    
