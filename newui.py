@@ -15,10 +15,11 @@ while True:
         else:
             print("Invalid entry. Press 0 or enter 'return' to return to the Home screen")
             return_input = int(input())
-
+            
+    states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
     #send first state to microservice 1        
     else:  
-        if state1 == "AL" or "AK" or "AZ" or "AR" or "CA" or "CO" or "CT" or "DE" or "DC" or "FL" or "GA" or "HI" or "ID" or "IL" or "IN" or "IA" or "KS" or "KY" or "LA" or "ME" or "MD" or "MA" or "MI" or "MN" or "MS" or "MO" or "MT" or "NE" or "NV" or "NH" or "NJ" or "NM" or "NY" or "NC" or "ND" or "OH" or "OK" or "OR" or "PA" or "RI" or "SC" or "SD" or "TN" or "TX" or "UT" or "VT" or "VA" or "WA" or "WV" or "WI" or "WY":
+        if state1 in states:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 s.connect((HOST, PORT))
                 s.sendall(state1.encode())
@@ -34,7 +35,7 @@ while True:
     #     # verify = str(input())
     #     # if verify == 'N':
     #     #     continue
-        # if state1 == "AL" or "AK" or "AZ" or "AR" or "CA" or "CO" or "CT" or "DE" or "DC" or "FL" or "GA" or "HI" or "ID" or "IL" or "IN" or "IA" or "KS" or "KY" or "LA" or "ME" or "MD" or "MA" or "MI" or "MN" or "MS" or "MO" or "MT" or "NE" or "NV" or "NH" or "NJ" or "NM" or "NY" or "NC" or "ND" or "OH" or "OK" or "OR" or "PA" or "RI" or "SC" or "SD" or "TN" or "TX" or "UT" or "VT" or "VA" or "WA" or "WV" or "WI" or "WY":
+        # if state1 in states:
         #     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             #     s.connect((HOST, PORT))
             #     s.sendall(state2.encode())
